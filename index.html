@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALLES GUTE!</title>
+    <style>
+        @font-face {
+            font-family: 'Qwitcher Grypen';
+            src: url('assets/QwitcherGrypen-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Family';
+            src: url('assets/family-regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: 'Family', Helvetica, sans-serif;
+            transition: background-color 1s ease-in;
+        }
+
+        .illustration {
+            opacity: 0;
+            transition: opacity 1s ease-in;
+            position: absolute;
+        }
+
+        h1 {
+            font-family: 'Qwitcher Grypen';
+            margin: 0;
+            font-weight: normal;
+            font-size: 6rem;
+        }
+
+        .handwritten {
+            font-family: 'Qwitcher Grypen';
+            font-size: 3rem;
+        }
+
+        .flower {
+            height: 200px;
+        }
+
+        .letter {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1rem;
+            color: black;
+            z-index: 10;
+            pointer-events: none;
+            padding: 1em;
+            background-color: #F4F0E9;
+            border-radius: 2px;
+            opacity: 0;
+            font-size: clamp(1.375rem, 2.225vw, 2rem);
+            letter-spacing: -0.0015em;
+            line-height: 1.3;
+            width: min(100%, 26.5em);
+            transition: opacity 1s ease-in;
+            box-shadow:
+                1px 2px 2px hsla(219, 43%, 12%, 0.333),
+                2px 4px 4px hsla(219, 43%, 12%, 0.333),
+                3px 6px 6px hsla(219, 43%, 12%, 0.333),
+        }
+
+        .center {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <article id="letter" class="letter">
+            <h1>Von Herzen alles Liebe</h1>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, odio corrupti. Veniam incidunt assumenda
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, odio corrupti. Veniam incidunt assumenda
+                repellat perferendis ipsam facere saepe nesciunt, facilis doloremque mollitia sed cum fugit animi
+                possimus corporis porro?</p>
+            <p class="handwritten">Eure Birgit und euer Jan</p>
+            <div class="center">
+                <img src="assets/flower.svg" class="flower" alt="Flower">
+            </div>
+        </article>
+    </div>
+
+    <img src="assets/ballet.svg" class="illustration" id="illustration1" alt="Illustration">
+    <img src="assets/groovy.svg" class="illustration" id="illustration2" alt="Illustration">
+    <img src="assets/jumping.svg" class="illustration" id="illustration3" alt="Illustration">
+    <img src="assets/levitate.svg" class="illustration" id="illustration4" alt="Illustration">
+    <img src="assets/loving.svg" class="illustration" id="illustration5" alt="Illustration">
+    <img src="assets/moshing.svg" class="illustration" id="illustration6" alt="Illustration">
+    <img src="assets/rolling.svg" class="illustration" id="illustration7" alt="Illustration">
+    <img src="assets/strolling.svg" class="illustration" id="illustration8" alt="Illustration">
+    <img src="assets/unboxing.svg" class="illustration" id="illustration9" alt="Illustration">
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const illustrations = document.querySelectorAll('.illustration');
+            const letter = document.getElementById('letter');
+            const colors = ['#FFDDC1', '#FFABAB', '#FFC3A0', '#FF677D', '#D4A5A5', '#392F5A', '#31A2AC', '#61C0BF', '#6B4226'];
+            let current = 0;
+
+            function fadeInLetter() {
+                letter.style.opacity = 1;
+            }
+
+            function fadeInOut() {
+                document.body.style.backgroundColor = colors[current % colors.length];
+
+                illustrations[current].style.opacity = 1;
+
+                setTimeout(() => {
+
+                    if (current < illustrations.length - 1) {
+                        illustrations[current].style.opacity = 0;
+                    } else {
+
+                        letter.style.display = 'block';
+                        letter.style.opacity = 1;
+                    }
+
+                    current++;
+                    if (current < illustrations.length) {
+                        setTimeout(fadeInOut, 1000);
+                    } else {
+                        fadeInLetter()
+                    }
+                }, 2000);
+            }
+            fadeInOut();
+        })
+    </script>
+</body>
+
+</html>
