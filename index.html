@@ -57,14 +57,8 @@
 
 
         .letter {
-            position: fixed;
-            top: 0;
-            left: 0;
-            bottom: 0;
             font-size: 1rem;
             color: black;
-            z-index: 10;
-            pointer-events: none;
             padding: 1em;
             background-color: #F4F0E9;
             border-radius: 2px;
@@ -80,15 +74,6 @@
         }
 
         @media screen and (min-width: 750px) {
-            .letter {
-                top: 50%;
-                left: 50%;
-                bottom: unset;
-                transform: translate(-50%, -50%);
-                width: min(100%, 26.5em);
-            }
-
-
             h1 {
                 font-size: 6rem;
             }
@@ -97,18 +82,43 @@
         .center {
             text-align: center;
         }
+
+        .wrapper {
+            overflow-y: scroll;
+            overflow-x: hidden;
+            position: fixed;
+            z-index: 20;
+            top: 50%;
+            left: 50%;
+            bottom: unset;
+            transform: translate(-50%, -50%);
+            width: min(100%, 41.5em);
+            max-height: 90vh;
+        }
     </style>
 </head>
 
 <body>
 
-    <div>
+    <div class="wrapper">
         <article id="letter" class="letter">
             <h1>Von Herzen alles Liebe</h1>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, odio corrupti. Veniam incidunt assumenda
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, odio corrupti. Veniam incidunt assumenda
-                repellat perferendis ipsam facere saepe nesciunt, facilis doloremque mollitia sed cum fugit animi
-                possimus corporis porro?</p>
+            <p>
+                Auf all euren gemeinsamen Abenteuern nur das Beste, <br>
+                hoffentlich haben wir viele gemeinsame Feste.
+            </p>
+            <p>
+                Unser Geschenk is monetär, <br>
+                Plastik frei? Schon recht schwer …
+            </p>
+            <p>
+                Kein Problem! Diese Website und digitale Kröten. <br>
+                Gönnt euch was, lasst es krachen und tröten.
+            </p>
+            <p>Zum Ende weise Worte von Kafka:</p>
+            <blockquote>
+                <p>Was ist die Liebe? Das ist doch ganz einfach! Liebe ist alles, was unser Leben steigert, erweitert, bereichert. Nach allen Höhen und Tiefen. Die Liebe ist so unproblematisch wie ein Fahrzeug. Problematisch sind nur Lenker, die Fahrgäste und die Straße.</p>
+            </blockquote>
             <p class="handwritten">Eure Birgit und euer Jan</p>
             <div class="center">
                 <img src="assets/flower.svg" class="flower" alt="Flower">
